@@ -3,7 +3,7 @@
 // @namespace   https://github.com/MarvNC
 // @match       https://lolibrary.moe/*
 // @grant       none
-// @version     1.0
+// @version     1.0.1
 // @author      MarvNC
 // @description Add Anna's Archive links to lolibrary.moe
 // @run-at      document-end
