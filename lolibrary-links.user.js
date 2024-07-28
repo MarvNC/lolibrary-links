@@ -13,18 +13,16 @@ const annasArchiveUrl = (hash) =>
   `https://annas-archive.org/md5/${hash}`;
 function addAnnasArchiveSearches() {
   console.log("Adding Anna's Archive URLs");
-  const annasArchiveDivs = /** @type{HTMLDivElement[]} */ ([
+  /** @type{HTMLDivElement[]} */ ([
     ...document.querySelectorAll('div[data-unique-id]'),
-  ]).filter((div) => div.textContent?.includes(`Anna's Archive`));
-
-  for (const div of annasArchiveDivs) {
+  ]).filter((div) => div.textContent?.includes(`Anna's Archive`)).map((div) => {
     // Set the div to be a link
     div.style.cursor = 'pointer';
     div.onclick = () => {
       const hash = div.dataset.uniqueId;
       window.open(annasArchiveUrl(hash), '_blank');
     };
-  }
+  });
 }
 
 const getMainPage = () =>
