@@ -21,19 +21,19 @@ function handleDivClick(event) {
   const div = /** @type {HTMLDivElement} */ (event.currentTarget);
   const hash = div.dataset.uniqueId;
   if (hash) {
-    window.open(annasArchiveUrl(hash), '_blank');
+    window.open(annasArchiveUrl(hash), "_blank");
   }
 }
 
 function addAnnasArchiveSearches() {
   console.log("Adding Anna's Archive URLs");
   /** @type{HTMLDivElement[]} */ ([
-    ...document.querySelectorAll('div[data-unique-id]'),
+    ...document.querySelectorAll("div[data-unique-id]"),
   ])
     .filter((div) => div.textContent?.includes(`Anna's Archive`))
     .map((div) => {
       // Set the div to be a link
-      div.style.cursor = 'pointer';
+      div.style.cursor = "pointer";
       div.onclick = handleDivClick;
     });
 }
@@ -57,7 +57,7 @@ function observeMainPage(mainPage) {
   while (true) {
     const mainPage = getMainPage();
     if (mainPage) {
-      console.log('Page loaded');
+      console.log("Page loaded");
       observeMainPage(mainPage);
       break;
     }
