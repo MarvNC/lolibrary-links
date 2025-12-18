@@ -1,3 +1,3 @@
 # Add Links to lolibrary.moe
 
-**[Install](./lolibrary-links.user.js)**
+**[Install](https://github.com/MarvNC/lolibrary-links)**
