@@ -3,21 +3,26 @@
 // @namespace   https://github.com/MarvNC
 // @match       https://lolibrary.moe/*
 // @grant       none
-// @version     1.0.1
+// @version     1.0.2
 // @author      MarvNC
 // @description Add Anna's Archive links to lolibrary.moe
 // @run-at      document-end
-// ==/UserScript==
+// ==UserScript==
 
+/**
+ * @param {string} hash
+ */
 const annasArchiveUrl = (hash) => `https://annas-archive.org/md5/${hash}`;
 
 /**
  * @param {MouseEvent} event
  */
 function handleDivClick(event) {
-  const div = event.currentTarget;
+  const div = /** @type {HTMLDivElement} */ (event.currentTarget);
   const hash = div.dataset.uniqueId;
-  window.open(annasArchiveUrl(hash), '_blank');
+  if (hash) {
+    window.open(annasArchiveUrl(hash), '_blank');
+  }
 }
 
 function addAnnasArchiveSearches() {
@@ -35,7 +40,7 @@ function addAnnasArchiveSearches() {
 
 const getMainPage = () =>
   /** @type{HTMLElement | null} */ (
-    document.querySelector('main[class^="page_wrapper')
+    document.querySelector('main[class^="page_wrapper"]')
   );
 
 /**
